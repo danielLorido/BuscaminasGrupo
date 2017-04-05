@@ -99,12 +99,9 @@ public class Desvelador {
 		if (casilla.isMina()) {
 			componente = panel.getComponents();
 			for (int i = 0; i < componente.length; i++) {
-				// if (new){
-				// utiles.Varios().obtenerCoordenada(((JButton)componente))) {
-				//
-				// }
 				componente[i].setEnabled(false);
 			}
+			System.out.println("game over");
 			juegoTerminado = true;
 		}
 	}
@@ -176,7 +173,7 @@ public class Desvelador {
 	 */
 	public boolean comprobarGanador(Tablero tablero, Marcador marcador) {
 
-		if (numVeladas == tablero.getNumMinasTotales() || marcador.getNumMarcadas() == tablero.getNumMinasTotales()) {
+		if (numVeladas == tablero.getNumMinasTotales()) {
 			System.out.println("has ganado");
 			return true;
 		}

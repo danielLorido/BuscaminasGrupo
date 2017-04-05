@@ -3,7 +3,7 @@ package modelo;
 public class Tablero {
 	private Casilla[][] casillas;
 	private int tamano;
-	private int numMinas = 10;
+	private int numMinas = 15;
 	private int numMinasTotales = numMinas;
 	private int numCasilla;
 

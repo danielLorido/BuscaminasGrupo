@@ -22,13 +22,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class BuscaMinasUI extends JFrame {
-	
+
 	private static final long serialVersionUID = -7308092302593191910L;
 	protected JPanel contentPane;
 	protected JMenuItem mntmNuevoJuego;
 	protected JPanel pnlBotonera;
 	public JButton[][] botonera;
-	protected JPanel panel;
+	private JPanel panel;
 	protected JLabel lblNumMinas;
 
 	/**
@@ -63,23 +63,23 @@ public class BuscaMinasUI extends JFrame {
 		pnlBotonera.setBackground(SystemColor.activeCaption);
 		contentPane.add(pnlBotonera, BorderLayout.CENTER);
 		pnlBotonera.setLayout(new GridLayout(1, 0, 0, 0));
-		
+
 		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[] { 0, 0, 0 };
+		gbl_panel.rowHeights = new int[] { 0, 0, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
-		
+
 		JLabel lbl = new JLabel("N\u00FAmero de Minas");
 		GridBagConstraints gbc_lbl = new GridBagConstraints();
 		gbc_lbl.insets = new Insets(0, 0, 5, 5);
 		gbc_lbl.gridx = 0;
 		gbc_lbl.gridy = 0;
 		panel.add(lbl, gbc_lbl);
-		
+
 		lblNumMinas = new JLabel("");
 		lblNumMinas.setForeground(new Color(250, 128, 114));
 		lblNumMinas.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -88,7 +88,7 @@ public class BuscaMinasUI extends JFrame {
 		gbc_lblNumMinas.gridx = 1;
 		gbc_lblNumMinas.gridy = 0;
 		panel.add(lblNumMinas, gbc_lblNumMinas);
-		
+
 		JLabel lblTiempo = new JLabel("Tiempo");
 		GridBagConstraints gbc_lblTiempo = new GridBagConstraints();
 		gbc_lblTiempo.insets = new Insets(0, 0, 0, 5);

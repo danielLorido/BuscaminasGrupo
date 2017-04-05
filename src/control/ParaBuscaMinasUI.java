@@ -32,7 +32,7 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 
 	public ParaBuscaMinasUI() {
 
-		desvelador.setNumVeladas(tablero.getNumCasilla());
+		desvelador.setNumVeladas(tablero.getNumCasilla() + 1);
 		lblNumMinas.setText(String.valueOf(tablero.getNumMinasTotales()));
 		System.out.println("Minas: " + tablero.getNumMinasTotales());
 		mntmNuevoJuego.addActionListener(new ActionListener() {
