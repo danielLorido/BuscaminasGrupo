@@ -3,7 +3,9 @@ package modelo;
 public class Tablero {
 	private Casilla[][] casillas;
 	private int tamano;
-	private int numMinas = 9;
+	private int numMinas = 10;
+	private int numMinasTotales = numMinas;
+	private int numCasilla;
 
 	public Tablero(int cuadrada) {
 		super();
@@ -25,6 +27,7 @@ public class Tablero {
 		for (int i = 0; i < casillas.length; i++) {
 			for (int j = 0; j < casillas[i].length; j++) {
 				casillas[i][j] = new Casilla();
+				numCasilla++;
 			}
 		}
 		// Pongo las minas
@@ -147,6 +150,22 @@ public class Tablero {
 
 	public void setNumMinas(int numMinas) {
 		this.numMinas = numMinas;
+	}
+	
+	public int getNumMinasTotales() {
+		return numMinasTotales;
+	}
+
+	public void setNumMinasTotales(int numMinasTotales) {
+		this.numMinasTotales = numMinasTotales;
+	}
+
+	public int getNumCasilla() {
+		return numCasilla;
+	}
+
+	public void setNumCasilla(int numCasilla) {
+		this.numCasilla = numCasilla;
 	}
 
 }

@@ -8,6 +8,15 @@ import utiles.Varios;
 public class Marcador {
 
 	Coordenada coordenada;
+	int numMarcadas;
+	public int getNumMarcadas() {
+		return numMarcadas;
+	}
+
+	public void setNumMarcadas(int numMarcadas) {
+		this.numMarcadas = numMarcadas;
+	}
+
 	Casilla casillaActual;
 	ImageIcon banderita = new ImageIcon(getClass().getResource("/iconos/flagResized.png"));
 
@@ -26,8 +35,10 @@ public class Marcador {
 			casillaActual.setMarcada(!casillaActual.isMarcada());
 			if (casillaActual.isMarcada()) {
 				boton.setIcon(banderita);
+				numMarcadas++;
 			} else {
 				boton.setIcon(null);
+				numMarcadas--;
 			}
 		}
 	}

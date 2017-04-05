@@ -28,15 +28,14 @@ public class BuscaMinasUI extends JFrame {
 	protected JMenuItem mntmNuevoJuego;
 	protected JPanel pnlBotonera;
 	public JButton[][] botonera;
-	private JPanel panel;
-	private JLabel lblNumMinas;
-	private JLabel lblTiempo;
+	protected JPanel panel;
+	protected JLabel lblNumMinas;
 
 	/**
 	 * Create the frame.
 	 */
 	public BuscaMinasUI() {
-		setMinimumSize(new Dimension(800, 600));
+		setMinimumSize(new Dimension(700, 700));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(BuscaMinasUI.class.getResource("/iconos/icono.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -68,21 +67,31 @@ public class BuscaMinasUI extends JFrame {
 		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0};
+		gbl_panel.columnWidths = new int[]{0, 0, 0};
 		gbl_panel.rowHeights = new int[]{0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		lblNumMinas = new JLabel("N\u00FAmero de Minas");
+		JLabel lbl = new JLabel("N\u00FAmero de Minas");
+		GridBagConstraints gbc_lbl = new GridBagConstraints();
+		gbc_lbl.insets = new Insets(0, 0, 5, 5);
+		gbc_lbl.gridx = 0;
+		gbc_lbl.gridy = 0;
+		panel.add(lbl, gbc_lbl);
+		
+		lblNumMinas = new JLabel("");
+		lblNumMinas.setForeground(new Color(250, 128, 114));
+		lblNumMinas.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblNumMinas = new GridBagConstraints();
 		gbc_lblNumMinas.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNumMinas.gridx = 0;
+		gbc_lblNumMinas.gridx = 1;
 		gbc_lblNumMinas.gridy = 0;
 		panel.add(lblNumMinas, gbc_lblNumMinas);
 		
-		lblTiempo = new JLabel("Tiempo");
+		JLabel lblTiempo = new JLabel("Tiempo");
 		GridBagConstraints gbc_lblTiempo = new GridBagConstraints();
+		gbc_lblTiempo.insets = new Insets(0, 0, 0, 5);
 		gbc_lblTiempo.gridx = 0;
 		gbc_lblTiempo.gridy = 1;
 		panel.add(lblTiempo, gbc_lblTiempo);
