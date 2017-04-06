@@ -14,6 +14,7 @@ import utiles.Varios;
 public class Desvelador {
 	JButton botonera[][];
 	private boolean juegoTerminado;
+	private int numVeladas;
 	ImageIcon minita = new ImageIcon(getClass().getResource("/iconos/minaNormalResized.png"));
 
 	/**
@@ -35,6 +36,7 @@ public class Desvelador {
 				boton.setText(String.valueOf(casilla.getminasAlrededor()));
 			}
 			casilla.setVelada(false);
+			numVeladas--;
 			darColor(boton, casilla);
 		}
 	}
@@ -119,6 +121,7 @@ public class Desvelador {
 	public void desvelarContiguas(Casilla casilla, Tablero tablero, int fila, int columna) {
 		if (casilla.getminasAlrededor() > 0 && !casilla.isMina()) {
 			casilla.setVelada(false);
+			numVeladas--;
 		} else {
 			int[][] adyacentes = { { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, -1 }, /* Mina */ { 0, 1 }, { 1, -1 },
 					{ 1, 0 }, { 1, 1 } };
@@ -135,6 +138,7 @@ public class Desvelador {
 					Casilla casillaNueva = tablero.getCasilla(coordenadaNueva);
 					if (casillaNueva.isVelada() && !casillaNueva.isMarcada()) {
 						casillaNueva.setVelada(false);
+						numVeladas--;
 						if (casillaNueva.getminasAlrededor() == 0) {
 							desvelarContiguas(casillaNueva, tablero, filaNueva, columnaNueva);
 						}
@@ -170,7 +174,12 @@ public class Desvelador {
 	 * 
 	 * @return true si has ganado el juego o false en caso contrario
 	 */
-	public boolean comprobarGanador() {
+	public boolean comprobarGanador(Tablero tablero) {
+		
+		if (numVeladas == tablero.getNumMinas()) {
+			System.out.println("has ganado");
+			return true;
+		}
 		return false;
 	}
 
@@ -180,5 +189,13 @@ public class Desvelador {
 
 	public void setJuegoTerminado(boolean juegoTerminado) {
 		this.juegoTerminado = juegoTerminado;
+	}
+
+	public int getNumVeladas() {
+		return numVeladas;
+	}
+
+	public void setNumVeladas(int numVeladas) {
+		this.numVeladas = numVeladas;
 	}
 }

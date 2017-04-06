@@ -22,7 +22,7 @@ import java.awt.event.MouseEvent;
 public class ParaBuscaMinasUI extends BuscaMinasUI {
 	private static final long serialVersionUID = 1L;
 
-	private int tamano = 40;
+	private int tamano = 10;
 	// Para la version 2 poner el numero de minas al crear el tablero
 
 	Tablero tablero = new Tablero(tamano);
@@ -33,6 +33,7 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 	public ParaBuscaMinasUI() {
 		mntmNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 			}
 		});
 
@@ -59,6 +60,12 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 					actualizarBotonera(tamano);
 					// System.out.println((component).getName());
 					desvelador.explotarMinas((JButton) e.getSource(), tablero, pnlBotonera, componentes);
+					if (desvelador.comprobarGanador(tablero)) {
+						for (int i = 0; i < componentes.length; i++) {
+							componentes[i].setEnabled(false);
+
+						}
+					}
 				}
 			});
 		}
@@ -81,9 +88,9 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 				botonera[fila][columna] = new JButton();
 				botonera[fila][columna].setName(coordenada.establecerCoordenadas());
 				// Borrar despues
-//				if (tablero.getCasillas()[fila][columna].isMina()) {
-//					botonera[fila][columna].setText("Mina");
-//				}
+				// if (tablero.getCasillas()[fila][columna].isMina()) {
+				// botonera[fila][columna].setText("Mina");
+				// }
 				pnlBotonera.add(botonera[fila][columna]);
 			}
 		}
