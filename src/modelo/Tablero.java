@@ -61,10 +61,9 @@ public class Tablero {
 	 */
 	// private void enumerarMina(int columna, int fila) {
 	public void enumerarMina(int columna, int fila) {
-		int[][] adyacentes = { 
-				{ -1, -1 }, { -1, 0 }, { -1, 1 },
+		int[][] adyacentes = { { -1, -1 }, { -1, 0 }, { -1, 1 },
 
-				{ 0, -1 }, /*MINA*/	 { 0, 1 },
+				{ 0, -1 }, /* MINA */ { 0, 1 },
 
 				{ 1, -1 }, { 1, 0 }, { 1, 1 } };
 
@@ -168,4 +167,15 @@ public class Tablero {
 		this.numCasilla = numCasilla;
 	}
 
+	public int getAlto() {
+		return casillas.length;
+	}
+
+	public int getAncho() {
+		return casillas[0].length;
+	}
+
+	public boolean isMarcada(int i, int j) {
+		return casillas[i][j].isMarcada();
+	}
 }

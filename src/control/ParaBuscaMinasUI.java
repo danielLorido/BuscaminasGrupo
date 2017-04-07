@@ -22,7 +22,9 @@ import java.awt.event.MouseEvent;
 public class ParaBuscaMinasUI extends BuscaMinasUI {
 	private static final long serialVersionUID = 1L;
 
+
 	private int tamano = 15;
+
 	// Para la version 2 poner el numero de minas al crear el tablero
 
 	Tablero tablero = new Tablero(tamano);
@@ -37,6 +39,7 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 		System.out.println("Minas: " + tablero.getNumMinasTotales());
 		mntmNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 			}
 		});
 
@@ -67,11 +70,13 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 					System.out.println("Veladas " + desvelador.getNumVeladas());
 					desvelador.explotarMinas((JButton) e.getSource(), tablero, pnlBotonera, componentes);
 
+
 					if (desvelador.comprobarGanador(tablero, marcador)) {
 						for (int i = 0; i < componentes.length; i++) {
 							componentes[i].setEnabled(false);
 						}
 					}
+
 
 				}
 			});
@@ -79,11 +84,11 @@ public class ParaBuscaMinasUI extends BuscaMinasUI {
 	}
 
 	/**
-	 * Crea el panel y le pone un GridLayout con un tamaño cuadrado, luego crea
+	 * Crea el panel y le pone un GridLayout con un tamaÃ±o cuadrado, luego crea
 	 * un boton con un nombre para cada posicion
 	 * 
 	 * @param tamano
-	 *            El numero de casillas que tendrá el tablero
+	 *            El numero de casillas que tendrÃ¡ el tablero
 	 */
 	private void crearBotonera(int tamano) {
 		pnlBotonera.setLayout(new GridLayout(tamano, tamano));

@@ -15,6 +15,7 @@ public class Desvelador {
 	JButton botonera[][];
 	private int numVeladas;
 	private boolean juegoTerminado;
+	private int numVeladas;
 	ImageIcon minita = new ImageIcon(getClass().getResource("/iconos/minaNormalResized.png"));
 
 	/**
@@ -27,7 +28,7 @@ public class Desvelador {
 		Casilla casilla = tablero.getCasilla(coordenada);
 		if (casilla.isMina()) {
 			boton.setIcon(minita);
-			// TendrÌa que explotar todas, desactivar el tablero y acabar el
+			// Tendr√≠a que explotar todas, desactivar el tablero y acabar el
 			// juego y darlo como perdido
 		} else if (casilla.isVelada() && !casilla.isMarcada()) {
 			if (casilla.getminasAlrededor() == 0 && !casilla.isMina()) {
@@ -108,7 +109,7 @@ public class Desvelador {
 
 	/**
 	 * Debe desvelar las casillas de alrededor de la casilla indicada, en caso
-	 * de que sea agua deber· hacer la recursividad
+	 * de que sea agua deber√° hacer la recursividad
 	 * 
 	 * @param tablero
 	 * @param casilla
@@ -171,9 +172,11 @@ public class Desvelador {
 	 * 
 	 * @return true si has ganado el juego o false en caso contrario
 	 */
+
 	public boolean comprobarGanador(Tablero tablero, Marcador marcador) {
 
 		if (numVeladas == tablero.getNumMinasTotales()) {
+
 			System.out.println("has ganado");
 			return true;
 		}
